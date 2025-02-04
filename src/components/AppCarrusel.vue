@@ -2,11 +2,11 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 const images = ref([
-  "../../public/carrusel_1.png",
-  "../../public/carrusel_2.png",
-  "../../public/carrusel_3.png",
-  "../../public/perfil_7.jpeg",
-  "../../public/perfil_8.jpeg",
+  "/carrusel_1.png",
+  "/carrusel_2.png",
+  "/carrusel_3.png",
+  "/perfil_7.jpeg",
+  "/perfil_8.jpeg",
 ]);
 
 const currentIndex = ref(0);
