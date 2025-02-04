@@ -65,7 +65,7 @@ const onTouchEnd = (e: TouchEvent) => {
       :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
     >
       <div v-for="(img, index) in images" :key="index" class="min-w-full">
-        <img :src="img" class="w-full h-screen object-cover" />
+        <img v-lazy="img" class="w-full h-screen object-cover" />
       </div>
     </div>
 
