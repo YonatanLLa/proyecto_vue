@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
 const images = ref([
@@ -11,7 +11,7 @@ const images = ref([
 
 const currentIndex = ref(0);
 const isHovered = ref(false);
-const intervalId = ref(null);
+const intervalId = ref<number | null | undefined>(null);
 const isTransitioning = ref(false);
 
 const nextSlide = () => {
@@ -31,7 +31,9 @@ const startAutoplay = () => {
 };
 
 const stopAutoplay = () => {
-  clearInterval(intervalId.value);
+  if (intervalId.value !== null) {
+    clearInterval(intervalId.value);
+  }
 };
 
 onMounted(() => startAutoplay());
@@ -39,8 +41,8 @@ onUnmounted(() => stopAutoplay());
 
 // Swipe en móviles
 let startX = 0;
-const onTouchStart = (e) => (startX = e.touches[0].clientX);
-const onTouchEnd = (e) => {
+const onTouchStart = (e: TouchEvent) => (startX = e.touches[0].clientX);
+const onTouchEnd = (e: TouchEvent) => {
   const deltaX = e.changedTouches[0].clientX - startX;
   if (deltaX > 50)
     currentIndex.value =
@@ -70,7 +72,7 @@ const onTouchEnd = (e) => {
     <!-- Indicadores -->
     <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
       <span
-        v-for="(img, index) in images"
+        v-for="(_img, index) in images"
         :key="index"
         @click="currentIndex = index"
         class="w-3 h-3 rounded-full cursor-pointer transition-all"

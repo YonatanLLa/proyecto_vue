@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import AppHome from "./components/AppHome.vue";
 import BentoGrid from "./components/BentoGrid.vue";
 import AppCarrusel from "./components/AppCarrusel.vue";
