@@ -1,4 +1,4 @@
-<script></script>
+<script setup lang="ts"></script>
 <template>
   <div class="">
     <div class="grid grid-cols-2">
